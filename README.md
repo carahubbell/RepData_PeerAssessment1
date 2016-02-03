@@ -47,7 +47,7 @@ View(data)
 
 We see that `data` consists of 17,568 observations of 3 variables: steps, date, and interval. Some of the values for steps are missing (coded as `NA`). Now we process the data a bit to make our analysis easier.
 
-From `srt(data)` we see that the date variable is currently a factor variable. We will change it into a date variable.
+From `str(data)` we see that the date variable is currently a factor variable. We will change it into a date variable.
 
 ```R
 data$date<-as.Date(as.character(data$date), format="%Y-%m-%d")
@@ -259,9 +259,9 @@ The first six observations for both the mean and median of the complete dataset 
 To compare the category of day (weekdays versus weekends), we use the ```complete``` dataset which has all NA values replaced by the mean steps of the corresponding time interval. We first create a new factor variable for the day's category (weekday or weekend) and then build a panel plot separating the two categories. The plot is shown below the code that generates it.
 
 ```R
-complete$day <- weekdays(complete$date)
-complete$category[(complete$day == "Saturday" | complete$day == "Sunday")] <- "weekend"
-complete$category[!(complete$day == "Saturday" | complete$day == "Sunday")] <- "weekday"
+complete$day<-weekdays(complete$date)
+complete$category[(complete$day=="Saturday" | complete$day=="Sunday")]<-"weekend"
+complete$category[!(complete$day=="Saturday" | complete$day=="Sunday")]<-"weekday"
 
 png("plot4daycategory.png", width=480, height=480, units="px")
 par(mfrow = c(2, 1))
