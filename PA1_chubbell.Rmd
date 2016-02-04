@@ -34,7 +34,7 @@ The dataset is stored in a comma-separated-value (CSV) file and there are a tota
 
 We begin by unzipping the activity file. To run this script, the user must be sure the zip file is located in the working directory.
 
-```{R echo=TRUE}
+```{R, echo=TRUE}
 unzip("./activity.zip")
 list.files() #to see what we unzipped
 data<-read.csv("activity.csv")
